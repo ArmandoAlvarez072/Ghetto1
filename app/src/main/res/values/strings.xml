@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Ghetto</string>
+    <string name="product_create">Crear</string>
+    <string name="product_loading">Preparando…</string>
+    <string name="hint_name">Nombre del producto</string>
+    <string name="hint_description">Descripcion</string>
+    <string name="hint_Quantity">Cantidad</string>
+    <string name="hint_Price">Precio</string>
+    <string name="product_empty_cart">Carrito Vacío</string>
+    <string name="product_full_cart">Total: %1$.2f USD</string>
+    <string name="text_view_cart">Ver carrito</string>
+    <string name="sign_out">Cerrar Sesion</string>
+    <string name="cart_title">Carrito de Compra</string>
+    <string name="cart_pay">Pagar</string>
+    <string name="detail_add_to_cart">Añadir al Carrito</string>
+    <string name="detail_quantity">Disponibles: %1$d</string>
+    <string name="detail_total_price">&lt;b>&lt;big>Total: %1$.2f USD&lt;/b>&lt;/big>&lt;br>(%2$d x %3$.2f)</string>
+    <string name="order_tracker_shippment">Seguir Envío</string>
+    <string name="order_status">Estado: %1$s</string>
+    <string name="order_id">ID: %1$s</string>
+    <string name="order_chat">¿Necesitas Ayuda?</string>
+    <string name="order_title">Hisstorial de compras</string>
+
+    <string name="order_status_ordered">Pedido</string>
+    <string name="order_status_preparing">Preparando</string>
+    <string name="order_status_sent">Enviado</string>
+    <string name="order_status_delivered">Entregado</string>
+    <string name="order_status_unknown">Desconocido</string>
+    <string name="track_title">Rastreo</string>
+    <string name="hint_chat">Escribe un mensaje</string>
+    <string name="chat_title">Soporte</string>
+    <string name="notification_channel_id_default">general</string>
+    <string name="notification_channel_name_default">Generales</string>
+</resources>
