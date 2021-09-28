@@ -31,4 +31,11 @@
     <string name="chat_title">Soporte</string>
     <string name="notification_channel_id_default">general</string>
     <string name="notification_channel_name_default">Generales</string>
+
+    <string name="facebook_application_id" translatable="false">280901020330520</string>
+    <!-- Facebook Application ID, prefixed by 'fb'. Enables Chrome Custom tabs. -->
+    <string name="facebook_login_protocol_scheme" translatable="false">fb280901020330520</string>
+
+
+
 </resources>

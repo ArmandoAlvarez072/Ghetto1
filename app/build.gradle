@@ -62,6 +62,9 @@ dependencies {
     //FCM
     implementation 'com.google.firebase:firebase-messaging-ktx'
 
+    //Facebook login
+    implementation 'com.facebook.android:facebook-login:8.1.0'
+
     //Analytics
     implementation 'com.google.firebase:firebase-analytics-ktx'
 

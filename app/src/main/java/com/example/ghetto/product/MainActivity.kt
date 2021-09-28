@@ -1,8 +1,11 @@
 package com.example.ghetto.product
 
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -31,6 +34,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
+import java.security.MessageDigest
 
 class MainActivity : AppCompatActivity() ,OnProductListener ,MainAux  {
 
@@ -159,6 +163,8 @@ class MainActivity : AppCompatActivity() ,OnProductListener ,MainAux  {
             }else{
                 val providers = arrayListOf(
                     AuthUI.IdpConfig.EmailBuilder().build(),
+                    AuthUI.IdpConfig.FacebookBuilder().build(),
+                    AuthUI.IdpConfig.PhoneBuilder().build(),
                     AuthUI.IdpConfig.GoogleBuilder().build())
 
                 resultLauncher.launch(
@@ -169,6 +175,46 @@ class MainActivity : AppCompatActivity() ,OnProductListener ,MainAux  {
                     .build())
             }
         }
+
+        try {
+            if (Build.VERSION.SDK_INT >=
+                Build.VERSION_CODES.P) {
+                val info =
+                    getPackageManager().getPackageInfo(
+                        "com.example.ghetto",
+                        PackageManager.GET_SIGNING_CERTIFICATES)
+                for (signature in
+                info.signingInfo.apkContentsSigners) {
+                    val md =
+                        MessageDigest.getInstance("SHA");
+
+                    md.update(signature.toByteArray());
+                    Log.d("API >= 28 KeyHash:",
+
+                        Base64.encodeToString(md.digest(),
+                            Base64.DEFAULT));
+                }
+            } else {
+                val info =
+                    getPackageManager().getPackageInfo(
+                        "com.example.ghetto"
+                        ,
+                        PackageManager.GET_SIGNATURES);
+                for (signature in info.signatures) {
+                    val md =
+                        MessageDigest.getInstance("SHA");
+
+                    md.update(signature.toByteArray());
+                    Log.d("API < 28 KeyHash:",
+
+                        Base64.encodeToString(md.digest(),
+                            Base64.DEFAULT));
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
 
     }
 
